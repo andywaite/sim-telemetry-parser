@@ -31,10 +31,13 @@ parsing the raw data and turning it into a friendly model.
    
    // Parse a stream
    $packet = $parser->streamToModels($binaryStream);
+   
+   // Get index of player  car
+   $playerCar = $packet->getHeader()->getPlayerCarIndex();
                            
    // Each packet contains different data. Speed is only contained in the car telemetry packet
-   if ($packet instanceof AndyWaite\SimTelemetryParser\Game\F12020\CarTelemetryPacket) {
-    echo "You are traveling at ".$packet->getValue()."kph";
+   if ($packet instanceof \AndyWaite\SimTelemetryParser\Game\F12020\Structs\PacketCarTelemetryData) {
+    echo "You are traveling at ".$packet->getCarTelemetry($playerCar)->getSpeed()."kph";
    }
     ```                     
 
