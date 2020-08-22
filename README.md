@@ -30,7 +30,7 @@ parsing the raw data and turning it into a friendly model.
    $parser = AndyWaite\SimTelemetryParser\Parser::getParser();
    
    // Parse a stream
-   $packet = $parser->parse($binaryStream);
+   $packet = $parser->streamToModels($binaryStream);
                            
    // Each packet contains different data. Speed is only contained in the car telemetry packet
    if ($packet instanceof AndyWaite\SimTelemetryParser\Game\F12020\CarTelemetryPacket) {
@@ -40,7 +40,29 @@ parsing the raw data and turning it into a friendly model.
 
 For a scrappy demo of it in use, see `demo.php`
 
+## Types of model that can be returned by parse function
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketCarSetupData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketCarStatusData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketCarTelemetryData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketEventData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketFinalClassificationData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketHeader`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketLapData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketLobbyInfoData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketMotionData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketParticipantsData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\PacketSessionData`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\FastestLap`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\Penalty`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\RaceWinner`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\Retirement`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\SpeedTrap`
+ - `AndyWaite\SimTelemetryParser\Game\F12020\TeamMateInPits`
+
+## Future development
+
 I plan to write a much nicer server application & visualiser which will use this library.
+
 
 For a complete reference of packets & their contents, see: https://forums.codemasters.com/topic/54423-f1%C2%AE-2020-udp-specification/
 
