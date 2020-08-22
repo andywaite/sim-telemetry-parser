@@ -36,7 +36,7 @@ parsing the raw data and turning it into a friendly model.
    if ($packet instanceof AndyWaite\SimTelemetryParser\Game\F12020\CarTelemetryPacket) {
     echo "You are traveling at ".$packet->getValue()."kph";
    }
-```                     
+    ```                     
 
 For a scrappy demo of it in use, see `demo.php`
 
