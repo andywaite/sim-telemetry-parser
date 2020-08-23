@@ -16,7 +16,7 @@
     echo "Socket created \n";
 
     // Bind the source address
-    if( !socket_bind($sock, "192.168.86.20" , 20777) )
+    if( !socket_bind($sock, "0.0.0.0" , 20777) )
     {
         $errorcode = socket_last_error();
         $errormsg = socket_strerror($errorcode);
@@ -35,6 +35,10 @@
         socket_recvfrom($sock, $buffer, 40000, 0, $remote_ip, $remote_port);
 
         try {
+
+            // If you prefer to work with arrays, this will get the data as an assoc array.
+            // $packet = $parser->streamToArray($buffer);
+
             $packet = $parser->streamToModels($buffer);
             $playerCar = $packet->getHeader()->getPlayerCarIndex();
 

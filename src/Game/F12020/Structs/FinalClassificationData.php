@@ -67,9 +67,10 @@ class FinalClassificationData extends AbstractF12020Struct
     /**
     * Total race time in seconds without penalties
     *
-    * @var double
+    * @var float
+    * @type BinaryFormatCodesHelper::DOUBLE
     */
-    protected double $totalRaceTime;
+    protected float $totalRaceTime;
 
     /**
     * Total penalties accumulated in seconds

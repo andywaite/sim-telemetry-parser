@@ -16,4 +16,5 @@ class BinaryFormatCodesHelper
     const INT64 = 'q';
 
     const FLOAT_LE = 'g';
+    const DOUBLE_LE = 'e';
 }
